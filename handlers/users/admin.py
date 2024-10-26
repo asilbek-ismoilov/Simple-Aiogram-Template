@@ -9,11 +9,9 @@ import time
 from aiogram import F
 
 
-
 @dp.message(Command("admin"),IsBotAdminFilter(ADMINS))
 async def is_admin(message:Message):
     await message.answer(text="Admin menu",reply_markup=admin_keyboard.admin_button)
-
 
 @dp.message(F.text=="Foydalanuvchilar soni",IsBotAdminFilter(ADMINS))
 async def users_count(message:Message):

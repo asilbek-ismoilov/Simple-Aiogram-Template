@@ -2,7 +2,6 @@ from data.config import CHANNELS
 from aiogram import filters,Bot
 from aiogram.types import Message
 
-
 class IsCheckSubChannels(filters.Filter):
 
     async def __call__(self,message:Message,bot:Bot):

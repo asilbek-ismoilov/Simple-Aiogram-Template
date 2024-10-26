@@ -1,7 +1,6 @@
 from aiogram.filters import BaseFilter
 from aiogram.types import Message
 
-
 class IsBotAdminFilter(BaseFilter):
     def __init__(self, user_ids: list):
         self.user_ids = user_ids

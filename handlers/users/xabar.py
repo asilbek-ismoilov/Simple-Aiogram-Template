@@ -10,9 +10,12 @@ async def help_commands(message:Message,state:FSMContext):
     await state.set_state(Help.help)
 
 @dp.message(Help.help)
-async def send_advert(message:Message,state:FSMContext):
+async def send_advert(message: Message, state: FSMContext):
     help_text = message.text
-    text = f"📬 ... Bot dan murojat keldi ! \n\n📜 Xabar : {help_text}"
+    from_chat_id = message.from_user.id
+
+    text = f"📬 ... Botdan murojat keldi!\n\n📜 Xabar: {help_text}"
     await bot.send_message(chat_id=ADMINS[0], text=text)
+    await bot.copy_message(chat_id=ADMINS[0], from_chat_id=from_chat_id, message_id=message.message_id)
     await message.answer("Sizning xabaringiz adminga yuborildi ✅")
     await state.clear()
